@@ -1,3 +1,9 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :users, only: %i[create] do
+    collection do
+      get 'show'
+      put 'edit'
+      post 'sign_in'
+    end
+  end
 end
